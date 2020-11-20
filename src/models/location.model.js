@@ -1,21 +1,15 @@
-// users-model.js - A mongoose model
+// location-model.js - A mongoose model
 //
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
 module.exports = function(app) {
-	const modelName = 'users';
+	const modelName = 'location';
 	const mongooseClient = app.get('mongooseClient');
-	const schema = new mongooseClient.Schema(
+	const { Schema } = mongooseClient;
+	const schema = new Schema(
 		{
-			email: { type: String, unique: true, lowercase: true, sparse: true },
-			username: { type: String, unique: true, lowercase: true, sparse: true },
-			fullName: { type: String, required: true },
-			phoneNum: { type: String },
-			password: { type: String },
-			location: {
-				type: mongooseClient.Schema.Types.ObjectId,
-				ref: 'location'
-			}
+			latitude: { type: Number, required: true },
+			longitude: { type: Number, required: true }
 		},
 		{
 			timestamps: true
