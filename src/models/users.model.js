@@ -12,9 +12,26 @@ module.exports = function(app) {
 			fullName: { type: String, required: true },
 			phoneNum: { type: String },
 			password: { type: String },
-			location: {
+			helpers: [
+				{
+					type: mongooseClient.Schema.Types.ObjectId,
+					ref: 'helpers'
+				}
+			],
+			userSettings: {
 				type: mongooseClient.Schema.Types.ObjectId,
-				ref: 'location'
+				ref: 'userSettings',
+				default: null
+			},
+			lastKnownLocation: {
+				type: mongooseClient.Schema.Types.ObjectId,
+				ref: 'location',
+				default: null
+			},
+			userType: {
+				type: String,
+				enum: [ 'CITIZEN', 'SAVER' ],
+				default: 'CITIZEN'
 			}
 		},
 		{
