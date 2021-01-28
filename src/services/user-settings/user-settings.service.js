@@ -12,11 +12,6 @@ module.exports = function(app) {
 	// Initialize our service with any options it requires
 	app.use('/user-settings', new UserSettings(options, app));
 
-	// Initialize our custom route
-	app.get('/risk-sities', (req, res) => {
-		res.send('Hello from custom route');
-	});
-
 	// Get our initialized service so that we can register hooks
 	const service = app.service('user-settings');
 
