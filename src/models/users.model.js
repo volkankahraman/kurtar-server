@@ -12,6 +12,8 @@ module.exports = function(app) {
 			fullName: { type: String, required: true },
 			phoneNum: { type: String },
 			password: { type: String },
+			birthDate: { type: Date },
+
 			helpers: [
 				{
 					type: mongooseClient.Schema.Types.ObjectId,
@@ -32,6 +34,11 @@ module.exports = function(app) {
 				type: String,
 				enum: [ 'CITIZEN', 'SAVER' ],
 				default: 'CITIZEN'
+			},
+			gender: {
+				type: String,
+				enum: [ 'MALE', 'FEMALE' ],
+				default: 'MALE'
 			}
 		},
 		{
