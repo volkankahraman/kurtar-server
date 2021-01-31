@@ -4,6 +4,7 @@ const createModel = require('../../models/location.model');
 const hooks = require('./location.hooks');
 const cities = require('./../../data/risk_city.json');
 const riskMessages = require('./../../data/risk_messages.json');
+const localPoints = require('./../../data/local_points.json');
 
 module.exports = function(app) {
 	const options = {
@@ -27,6 +28,10 @@ module.exports = function(app) {
 		});
 		// console.log();
 		res.json(cityRes);
+	});
+
+	app.get('/local-points', (req, res) => {
+		res.json(localPoints);
 	});
 
 	// Get our initialized service so that we can register hooks
