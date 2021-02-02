@@ -32,7 +32,6 @@ module.exports = function(app) {
 			},
 			userType: {
 				type: String,
-				enum: [ 'CITIZEN', 'SAVER' ],
 				default: 'CITIZEN'
 			},
 			gender: {
