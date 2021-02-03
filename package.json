@@ -50,6 +50,7 @@
     "cors": "^2.8.5",
     "feathers-mongoose": "^8.3.1",
     "feathers-populate-hook": "^0.5.3",
+    "feathers-swagger": "^1.2.1",
     "geolib": "^3.3.1",
     "helmet": "^4.2.0",
     "mongodb-core": "^3.2.7",

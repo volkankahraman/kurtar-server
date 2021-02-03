@@ -8,8 +8,8 @@ const logger = require('./logger');
 const feathers = require('@feathersjs/feathers');
 const configuration = require('@feathersjs/configuration');
 const express = require('@feathersjs/express');
+const swagger = require('feathers-swagger');
 const socketio = require('@feathersjs/socketio');
-
 
 const middleware = require('./middleware');
 const services = require('./services');
@@ -25,9 +25,22 @@ const app = express(feathers());
 // Load app configuration
 app.configure(configuration());
 // Enable security, CORS, compression, favicon and body parsing
-app.use(helmet({
-  contentSecurityPolicy: false
-}));
+app.use(
+	helmet({
+		contentSecurityPolicy: false
+	})
+);
+app.configure(
+	swagger({
+		specs: {
+			info: {
+				title: 'A test',
+				description: 'A description',
+				version: '1.0.0'
+			}
+		}
+	})
+);
 app.use(cors());
 app.use(compress());
 app.use(express.json());
